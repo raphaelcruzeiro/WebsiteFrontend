@@ -34,6 +34,11 @@
     font-weight: 100
     font-style: italic
 
+@keyframes spin
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
 
 $black: rgb(0, 0, 0)
 $gray: rgb(68, 68, 68)
@@ -148,10 +153,38 @@ nav.top-menu
                 margin: 0 0 0 15px
 
             .cogs
-                font-size: 165pt
+                position: relative
+                width: 300px
+                height: 220px
                 color: $white
                 float: right
                 margin: 15px 0
+
+            .big-cog, .small-cog
+                position: absolute
+                font-size: 115pt
+
+            .big-cog
+                top: 34px
+                left: 70px
+                animation-name: spin
+                animation-duration: 7s
+                animation-iteration-count: infinite
+                animation-timing-function: linear
+                animation-direction: reverse
+
+            .small-cog
+                right: 0
+                font-size: 83pt
+                animation-name: spin
+                animation-duration: 4.5s
+                animation-iteration-count: infinite
+                animation-timing-function: linear
+                animation-direction: normal
+
+            .small-cog:nth-child(2)
+                bottom: 0
+                animation-direction: reverse
 
             h2
                 width: 45%
