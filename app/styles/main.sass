@@ -43,10 +43,12 @@
 @keyframes wrench
     0%
         transform: rotate(0deg)
+        top: 0
         right: 0px
     100%
         transform: rotate(-45deg)
-        right: -60px
+        top: 10px
+        right: -50px
 
 $black: rgb(0, 0, 0)
 $gray: rgb(68, 68, 68)
@@ -57,6 +59,10 @@ $white: rgb(255, 255, 255)
 .constrained
     width: calc(100% - 30px)
     margin: 0 auto
+
+.table
+    display: table
+    height: 100%
 
 .center
     display: table-cell
@@ -107,9 +113,9 @@ nav.top-menu
         p
             font-size: 20px
             line-height: 30px
+            font-family: Helvetica, Arial, sans-serif
 
         h2
-            width: 45%
             font-weight: 100
             font-size: 38pt
             margin: 12px 0
@@ -124,20 +130,48 @@ nav.top-menu
         .constrained
             width: calc(100% - 400px)
 
+            @media only screen and (max-width : 768px)
+                width: calc(100% - 15px)
+
         .wrapper
-            width: 931px
             height: 255px
-            margin: 20px auto
+            margin: 20px 20px 20px 0
+            width: 585px
+
+            @media screen and (min-width: 1290px)
+                float: left
+                width: auto
+
+            @media screen and (max-width: 1289px)
+                margin: 20px auto
+
+            @media only screen and (max-width : 768px)
+                width: 435px
+                margin: 20px auto
+
+                h2
+                    font-size: 30pt
+
+                    strong
+                        font-size: 47pt
 
             .split
                 width: 440px
                 float: left
 
             .left
+                width: 230px
                 margin: 0 15px 0
 
+                @media only screen and (max-width : 768px)
+                    width: 150px
+
             .right
+                width: 310px
                 margin: 0 0 0 15px
+
+                @media only screen and (max-width : 768px)
+                    width: 240px
 
     article.highlight
         background: url('/images/barcelona1.png')
@@ -170,7 +204,11 @@ nav.top-menu
                 line-height: 65px
                 margin: 0 0 15px 0
 
-    article.yellow
+                @media only screen and (max-width : 800px)
+                    font-size: 24pt
+                    font-weight: 200
+
+    article.build
         background: $yellow
         color: $black
 
@@ -181,6 +219,9 @@ nav.top-menu
             color: $white
             float: right
             margin: 15px 0
+
+            @media only screen and (max-width : 768px)
+                width: 150px
 
         .big-cog, .small-cog
             position: absolute
@@ -195,6 +236,10 @@ nav.top-menu
             animation-timing-function: linear
             animation-direction: reverse
 
+            @media only screen and (max-width : 768px)
+                left: 0
+                font-size: 90pt
+
         .small-cog
             right: 0
             font-size: 83pt
@@ -204,20 +249,25 @@ nav.top-menu
             animation-timing-function: linear
             animation-direction: normal
 
+            @media only screen and (max-width : 768px)
+                font-size: 55pt
+
         .small-cog:nth-child(2)
             bottom: 0
-            animation-direction: reverse
 
-    article.black
-        background: $black
-        color: $white
+            @media only screen and (max-width : 768px)
+                bottom: 30px
+
+    article.tools
+        background: $white
+        color: $black
 
         h2
             font-size: 23pt
 
         .left
             position: relative
-            width: 336px
+            width: 150px
             height: 220px
             margin: 10px 20px 0 0
 
@@ -225,6 +275,7 @@ nav.top-menu
             position: absolute
             top: 0
             right: 0
+            color: $yellow
             font-size: 125pt
             animation-name: wrench
             animation-duration: 3s

@@ -11,15 +11,18 @@
             restrict: 'C',
             link: function(scope, elem) {
                 $w.scroll(function() {
-                    var blur = Math.abs($w.scrollTop()) / 20,
-                        blurStr = ['blur(', blur, 'px)'].join('')
-                    elem.css({
-                        '-webkit-filter' : blurStr,
-                        '-moz-filter' : blurStr,
-                        '-o-filter' : blurStr,
-                        '-ms-filter' : blurStr,
-                        'filter' : blurStr
-                    });
+                    var pos = $w.scrollTop();
+                    if (pos < $w.height()) {
+                        var blur = Math.abs(pos) / 20,
+                            blurStr = ['blur(', blur, 'px)'].join('')
+                        elem.css({
+                            '-webkit-filter' : blurStr,
+                            '-moz-filter' : blurStr,
+                            '-o-filter' : blurStr,
+                            '-ms-filter' : blurStr,
+                            'filter' : blurStr
+                        });
+                    }
                 });
             }
         };
