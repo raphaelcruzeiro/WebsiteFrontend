@@ -1,0 +1,167 @@
+
+@font-face
+    font-family: 'Kessel'
+    src: url('/fonts/talbot_type_-_kessel105-light-webfont.eot')
+    src: url('/fonts/talbot_type_-_kessel105-light-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/talbot_type_-_kessel105-light-webfont.woff') format('woff'), url('/fonts/talbot_type_-_kessel105-light-webfont.ttf') format('truetype'), url('/fonts/talbot_type_-_kessel105-light-webfont.svg#kessel_105light') format('svg')
+    font-weight: 100
+    font-style: normal
+
+@font-face
+    font-family: 'Kessel'
+    src: url('/fonts/talbot_type_-_kessel105-bold-webfont.eot')
+    src: url('/fonts/talbot_type_-_kessel105-bold-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/talbot_type_-_kessel105-bold-webfont.woff') format('woff'), url('/fonts/talbot_type_-_kessel105-bold-webfont.ttf') format('truetype'), url('/fonts/talbot_type_-_kessel105-bold-webfont.svg#kessel_105bold') format('svg')
+    font-weight: 400
+    font-style: normal
+
+@font-face
+    font-family: 'Kessel'
+    src: url('/fonts/talbot_type_-_kessel105-book-webfont.eot')
+    src: url('/fonts/talbot_type_-_kessel105-book-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/talbot_type_-_kessel105-book-webfont.woff') format('woff'), url('/fonts/talbot_type_-_kessel105-book-webfont.ttf') format('truetype'), url('/fonts/talbot_type_-_kessel105-book-webfont.svg#kessel_105book') format('svg')
+    font-weight: 200
+    font-style: normal
+
+@font-face
+    font-family: 'Kessel'
+    src: url('/fonts/talbot_type_-_kessel105-bookoblique-webfont.eot')
+    src: url('/fonts/talbot_type_-_kessel105-bookoblique-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/talbot_type_-_kessel105-bookoblique-webfont.woff') format('woff'), url('/fonts/talbot_type_-_kessel105-bookoblique-webfont.ttf') format('truetype'), url('/fonts/talbot_type_-_kessel105-bookoblique-webfont.svg#kessel_105bookoblique') format('svg')
+    font-weight: 200
+    font-style: italic
+
+@font-face
+    font-family: 'Kessel'
+    src: url('/fonts/talbot_type_-_kessel105-thinoblique-webfont.eot')
+    src: url('/fonts/talbot_type_-_kessel105-thinoblique-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/talbot_type_-_kessel105-thinoblique-webfont.woff') format('woff'), url('/fonts/talbot_type_-_kessel105-thinoblique-webfont.ttf') format('truetype'), url('/fonts/talbot_type_-_kessel105-thinoblique-webfont.svg#kessel_105thin_oblique') format('svg')
+    font-weight: 100
+    font-style: italic
+
+
+$black: rgb(0, 0, 0)
+$gray: rgb(68, 68, 68)
+$orange: rgb(255, 85, 85)
+$yellow: rgb(253, 216, 0)
+$white: rgb(255, 255, 255)
+
+.constrained
+    width: calc(100% - 30px)
+    margin: 0 auto
+
+.center
+    display: table-cell
+    vertical-align: middle
+
+body
+    font-family: Kessel, Helvetica
+    font-weight: 200
+    -webkit-font-smoothing: antialiased
+
+nav.top-menu
+    position: fixed
+    z-index: 2
+    width: 100%
+    height: 80px
+    background: $black
+    color: $yellow
+
+    .heading-wrapper
+        float: left
+        width: 385px
+
+        h1
+            font-weight: bold
+            font-size: 32px
+            margin: 8px 0 0 0
+
+        h2
+            font-weight: lighter
+            font-style: italic
+            font-size: 17px
+            text-transform: uppercase
+            margin: 0
+
+        .rocket
+            font-size: 35pt
+            float: left
+            line-height: 75px
+            letter-spacing: 15px
+            color: $white
+
+.main
+    article
+        display: table
+        width: 100%
+        height: 100vh
+
+    article p
+        font-size: 20px
+        line-height: 30px
+
+    article .constrained
+        width: calc(100% - 400px)
+
+    article.highlight
+        background: url('/images/barcelona1.png')
+        background-size: cover
+        background-position: 50% 0%
+        background-attachment: fixed
+        -webkit-filter: blur(0px)
+        transition: 0.5s ease-in-out
+
+        &.blur
+            -webkit-filter: blur(20px)
+
+        .headline
+            display: table-cell
+            vertical-align: middle
+            width: 100%
+            color: $white
+            text-align: center
+
+            h1
+                text-transform: uppercase
+                font-size: 63pt
+                line-height: 100px
+                margin: 0
+
+            h2
+                font-size: 45pt
+                font-weight: 100
+                line-height: 65px
+                margin: 0 0 15px 0
+
+    article.yellow
+        background: $yellow
+        color: $black
+
+        .wrapper
+            width: 931px
+            height: 255px
+            margin: 20px auto
+
+            .split
+                width: 440px
+                float: left
+
+            .left
+                margin: 0 15px 0
+
+            .right
+                margin: 0 0 0 15px
+
+            .cogs
+                font-size: 165pt
+                color: $white
+                float: right
+                margin: 15px 0
+
+            h2
+                width: 45%
+                font-weight: 100
+                font-size: 38pt
+                margin: 12px 0
+
+                strong
+                    text-transform: uppercase
+                    font-size: 60pt
+                    font-weight: bolder
+                    line-height: 72px
+                    letter-spacing: -4px
