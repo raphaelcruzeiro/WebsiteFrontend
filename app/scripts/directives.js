@@ -28,4 +28,27 @@
         };
     });
 
+    module.directive('separator', function() {
+        return {
+            restrict: 'C',
+            link: function(scope, elem) {
+                var speedFactor = 0.4,
+                    shift = 0,
+                    firstTop = elem.offset().top;
+                function update() {
+                    var top = elem.offset().top,
+                        height = elem.height(),
+                        pos = $w.scrollTop(),
+                        windowHeight = $w.height();
+                    if (top + height < pos || top > pos + windowHeight) return;
+                    var ypos = Math.round((firstTop - pos) * speedFactor) + shift;
+                    elem.css({
+                        'background-position-y' : [ypos, 'px'].join('')
+                    });
+                }
+                $w.scroll(update).resize(update);
+            }
+        }
+    });
+
 })(window, document, navigator);

@@ -55,6 +55,42 @@ $gray: rgb(68, 68, 68)
 $orange: rgb(255, 85, 85)
 $yellow: rgb(253, 216, 0)
 $white: rgb(255, 255, 255)
+$orange: rgb(255, 152, 45)
+
+body
+    font-family: Kessel, Helvetica
+    font-weight: 200
+    overflow-x: hidden
+    -webkit-font-smoothing: antialiased
+
+input, textarea
+    width: 100%
+    margin: 5px 0
+    height: 45px
+    border: solid #4d4d4d 1px
+    border-radius: 5px
+    outline: none
+    resize: none
+    padding: 0 10px
+    box-sizing: border-box
+
+textarea
+    padding-top: 10px
+    height: 335px
+
+button
+    display: table
+    background: black
+    border-radius: 4px
+    border: none
+    background-clip: padding-box
+    text-transform: uppercase
+    font-size: 15px
+    text-align: center
+    color: #fff
+    padding: 16px 20px 12px
+    float: right
+    margin: 10px 0 30px 0
 
 .constrained
     width: calc(100% - 30px)
@@ -71,10 +107,6 @@ $white: rgb(255, 255, 255)
     display: table-cell
     vertical-align: middle
 
-body
-    font-family: Kessel, Helvetica
-    font-weight: 200
-    -webkit-font-smoothing: antialiased
 
 nav.top-menu
     position: fixed
@@ -99,7 +131,7 @@ nav.top-menu
                 margin-top: 13px
 
         h2
-            font-weight: lighter
+            font-weight: normal
             font-style: italic
             font-size: 17px
             text-transform: uppercase
@@ -125,6 +157,10 @@ nav.top-menu
             font-size: 20px
             line-height: 30px
             font-family: Helvetica, Arial, sans-serif
+
+            @media only screen and (max-width : 768px)
+                text-align: justify
+                margin: 50px 10px
 
         h2
             font-weight: 100
@@ -205,6 +241,9 @@ nav.top-menu
             width: 100%
             color: $white
             text-align: center
+
+            h1, h2
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
 
             h1
                 text-transform: uppercase
@@ -329,3 +368,48 @@ nav.top-menu
 
             @media only screen and (max-width : 768px)
                 font-size: 70pt
+
+    div.separator
+        width: 100%
+        height: 250px
+        background: url('/images/warsaw.jpg')
+        background-size: 100%
+        background-attachment: fixed
+        background-position: 50% 50%
+
+    article.portifolio
+        .code
+            font-size: 170pt
+
+            @media only screen and (max-width : 768px)
+                font-size: 80pt
+                margin-top: 5px
+        h2
+            font-size: 20pt
+
+            @media only screen and (max-width : 768px)
+                font-size: 12pt
+
+        .right
+            margin-top: 15px
+
+            @media only screen and (max-width : 768px)
+                margin-top: 0
+
+    footer
+        width: 100%
+        background: $yellow
+        overflow: auto
+
+        .constrained
+            width: 45%
+            min-width: 648px
+
+            @media only screen and (max-width : 768px)
+                width: 100%
+
+            input, textarea
+                @media only screen and (max-width : 768px)
+                    border-radius: 0
+                    border-right: none
+                    border-left: none
