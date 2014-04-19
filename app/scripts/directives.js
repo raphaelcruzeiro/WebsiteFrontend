@@ -46,7 +46,7 @@
                     if (top + height < pos || top > pos + windowHeight) return;
                     var ypos = (Math.round((firstTop - pos) * speedFactor) + shift);
                     elem.css({
-                        'background-position-y' : [ypos, 'px'].join('')
+                        'background-position' : ['50% ', ypos, 'px'].join('')
                     });
                 }
                 $w.scroll(update).resize(update);
