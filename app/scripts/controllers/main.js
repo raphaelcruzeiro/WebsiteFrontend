@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('websiteFrontendApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+(function() {
+    var module = angular.module('websiteFrontendApp');
+
+    module.controller('MainCtrl', function ($scope, ProjectService) {
+        console.log('Loaded main');
+        ProjectService.getProjects().then(function(d) {
+            $scope.projects = d;
+        });
+    });
+})();

@@ -1,6 +1,6 @@
 <secion class="main">
-    <article class="highlight">
-        <div class="headline">
+    <article class="highlight" parallax>
+        <div class="headline fadeIn">
             <h2>Hello, my name is</h2>
             <h1>Raphael Cruzeiro</h1>
             <h2>and I am a software developer</h2>
@@ -52,36 +52,55 @@
             </div>
         </div>
     </article>
-    <div class="separator"></div>
+    <div class="separator" parallax></div>
     <article class="portifolio">
         <div class="center">
             <div class="constrained">
-                <aside>
-                    <div class="wrapper">
-                        <div class="split left">
-                            <div class="fa fa-code code"></div>
-                        </div>
-                        <div class="split right">
-                            <h2>Some stuff that I<br /><strong>have built</strong></h2>
-                        </div>
+                <div class="wrapper">
+                    <div class="split left">
+                        <div class="fa fa-code code"></div>
                     </div>
-                </aside>
-                <aside>
-                    <p>This is a selection of my recent projects that are worth of notice. Some of these projects were developed under contract for my clients and others are open source software. If there is a Github icon next to the project, then the project is open source and the link will take you to the repository.</p>
-                    <p>I am always looking for volunteers to help with open source work. If you are interested, just drop me a message on the contact form bellow.</p>
-                </aside>
+                    <div class="split right">
+                        <h2>Some stuff that I<br /><strong>have built</strong></h2>
+                    </div>
+                </div>
+                <p>This is a selection of my recent projects that are worth of notice. Some of these projects were developed under contract for my clients and others are open source software. If there is a Github icon next to the project, then the project is open source and the link will take you to the repository.</p>
+                <p>I am always looking for volunteers to help with open source work. If you are interested, just drop me a message on the contact form bellow.</p>
+                <div class="list">
+                    <div class = "item" ng-repeat="project in projects">
+                        <h4><a href="{{ project.url }}" target="_blank">{{ project.title }}</a></h4>
+                        <div class="github" ng-show="project.github">
+                            <a href="{{ project.github.url }}" target="_blank"><i class="github-icon icon fa fa-github"></i></a>
+                            <i class="fork-icon icon fa fa-code-fork"></i><span>{{ project.github.forks_count }}</span>
+                            <i class="star-icon icon fa fa-star"></i><span>{{ project.github.watchers }}</span>
+                        </div>
+                        <div class="description" ng-bind-html="project.description"></div>
+                    </div>
+                <//div>
             </div>
         </div>
     </article>
 </section>
 <footer>
     <div class="constrained">
-        <h2>Contact me</h2>
-        <form name="contactForm" ng-submit="send()" novalidate>
-            <input type="text" ng-model="contact.name" placeholder="Your name..." />
-            <input type="email" ng-nodel="contact.email" placeholder="Email.." />
-            <textarea ng-model="contact.message" placeholder="Type your message here..."></textarea>
-        </form>
-        <button type="submit">Send</button>
+        <div class="wrapper">
+            <aside class="card">
+                <img alt="Raphael Cruzeiro" src="/images/me.jpg"/>
+                <h4>You can find me on:</h4>
+                <ul>
+                    <li><a href="https://github.com/raphaelcruzeiro/" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+                    <li><a href="https://twitter.com/rcdeveloper" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                    <li><a href="http://www.linkedin.com/pub/raphael-cruzeiro/57/b49/93a" target="_blank"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                    <li><a href="http://slideshare.com/raphaelcruzeiro" target="_blank">Slideshare</a></li>
+                </ul>
+            </aside>
+            <form name="contactForm" ng-submit="send()" novalidate>
+                <h2>Contact me</h2>
+                <input type="text" ng-model="contact.name" placeholder="Your name..." />
+                <input type="email" ng-nodel="contact.email" placeholder="Email.." />
+                <textarea ng-model="contact.message" placeholder="Type your message here..."></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </div>
 </footer>

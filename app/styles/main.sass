@@ -63,6 +63,10 @@ body
     overflow-x: hidden
     -webkit-font-smoothing: antialiased
 
+a, a:visited
+    text-decoration: none
+    color: $orange
+
 input, textarea
     width: 100%
     margin: 5px 0
@@ -177,6 +181,9 @@ nav.top-menu
         .constrained
             width: calc(100% - 400px)
 
+            @media screen and (max-width: 1280px)
+                width: calc(100% - 50px)
+
             @media only screen and (max-width : 768px)
                 width: calc(100% - 15px)
 
@@ -225,12 +232,11 @@ nav.top-menu
                     margin: 25px 0 0 5px
 
     article.highlight
-        background: url('/images/barcelona1.png')
+        background: url('/images/bg.jpg')
         background-size: cover
         background-position: 50% 0%
         background-attachment: fixed
         -webkit-filter: blur(0px)
-        transition: 0.5s ease-in-out
 
         &.blur
             -webkit-filter: blur(20px)
@@ -377,7 +383,24 @@ nav.top-menu
         background-attachment: fixed
         background-position: 50% 50%
 
+        @media only screen and (max-width : 768px)
+            display: none
+
     article.portifolio
+        height: auto
+
+        .icon
+            color: black
+            margin: 0 5px
+
+        .wrapper
+            float: none
+            margin: 65px auto
+            width: 575px
+
+            @media only screen and (max-width : 768px)
+                width: 290px
+
         .code
             font-size: 170pt
 
@@ -396,16 +419,74 @@ nav.top-menu
             @media only screen and (max-width : 768px)
                 margin-top: 0
 
+        div.list
+            width: 1020px
+            margin: 40px auto 50px auto
+            overflow: auto
+
+            @media only screen and (max-width : 1050px)
+                width: 680px
+
+            @media only screen and (max-width : 680px)
+                width: 340px
+
+            .item
+                width: 300px
+                margin: 20px
+                float: left
+
+                p
+                    font-size: 13pt
+
     footer
         width: 100%
         background: $yellow
         overflow: auto
 
-        .constrained
-            width: 45%
-            min-width: 648px
+        .wrapper
+            width: 85%
+            margin: 0 auto
+
+            @media only screen and (max-width : 1210px)
+                width: 100%
+
+        aside.card
+            width: 300px
+            float: left
+            margin: 50px
+
+            h4
+                text-align: center
+
+            img
+                display: block
+                border-radius: 50%
+                width: 200px
+                height: 200px
+                margin: 0 auto
+
+                @media only screen and (max-width : 768px)
+                    float: none
+
+            ul
+                list-style: none
+                margin: 0 auto
+                padding: 0
+                width: 130px
+
+                li
+                    margin: 10px 0
+
+                    i
+                        margin: 0 5px 0 0
+
+        form
+            width: 60%
+            float: right
+            margin: 0 auto
 
             @media only screen and (max-width : 768px)
+                float: none
                 width: 100%
 
             input, textarea
@@ -413,3 +494,8 @@ nav.top-menu
                     border-radius: 0
                     border-right: none
                     border-left: none
+
+article
+    .constrained
+        @media only screen and (max-width : 768px)
+            margin-top: 40px

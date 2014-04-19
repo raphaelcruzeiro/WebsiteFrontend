@@ -4,7 +4,8 @@ angular.module('websiteFrontendApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'services.Projects'
 ])
   .config(function ($routeProvider) {
     $routeProvider

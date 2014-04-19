@@ -10,11 +10,14 @@
         return {
             restrict: 'C',
             link: function(scope, elem) {
+                var speedFactor = 0.4,
+                    shift = 0,
+                    firstTop = elem.offset().top;
                 $w.scroll(function() {
                     var pos = $w.scrollTop();
                     if (pos < $w.height()) {
                         var blur = Math.abs(pos) / 20,
-                            blurStr = ['blur(', blur, 'px)'].join('')
+                            blurStr = ['blur(', blur, 'px)'].join('');
                         elem.css({
                             '-webkit-filter' : blurStr,
                             '-moz-filter' : blurStr,
@@ -28,10 +31,10 @@
         };
     });
 
-    module.directive('separator', function() {
+    module.directive('parallax', function() {
         return {
-            restrict: 'C',
-            link: function(scope, elem) {
+            restrict: 'A',
+            link: function(scope, elem, attrs) {
                 var speedFactor = 0.4,
                     shift = 0,
                     firstTop = elem.offset().top;
@@ -41,7 +44,7 @@
                         pos = $w.scrollTop(),
                         windowHeight = $w.height();
                     if (top + height < pos || top > pos + windowHeight) return;
-                    var ypos = Math.round((firstTop - pos) * speedFactor) + shift;
+                    var ypos = (Math.round((firstTop - pos) * speedFactor) + shift);
                     elem.css({
                         'background-position-y' : [ypos, 'px'].join('')
                     });
