@@ -435,6 +435,9 @@ nav.top-menu
                 margin: 20px
                 float: left
 
+                @media only screen and (max-width : 768px)
+                    margin: 20px 10px 20px 10px
+
                 p
                     font-size: 13pt
 
@@ -447,13 +450,18 @@ nav.top-menu
             width: 85%
             margin: 0 auto
 
-            @media only screen and (max-width : 1210px)
+            @media only screen and (max-width : 1030px)
                 width: 100%
 
         aside.card
             width: 300px
             float: left
             margin: 50px
+
+            @media only screen and (max-width : 1030px)
+                float: none
+                margin-left: auto
+                margin-right: auto
 
             h4
                 text-align: center
@@ -485,12 +493,13 @@ nav.top-menu
             float: right
             margin: 0 auto
 
-            @media only screen and (max-width : 768px)
+            @media only screen and (max-width : 1030px)
                 float: none
                 width: 100%
+                margin: 0
 
             input, textarea
-                @media only screen and (max-width : 768px)
+                @media only screen and (max-width : 1030px)
                     border-radius: 0
                     border-right: none
                     border-left: none
