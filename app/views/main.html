@@ -1,4 +1,4 @@
-<secion class="main">
+<section class="main">
     <article class="highlight" parallax>
         <div class="headline fadeIn">
             <h2>Hello, my name is</h2>
@@ -94,13 +94,26 @@
                     <li><a href="http://slideshare.com/raphaelcruzeiro" target="_blank">Slideshare</a></li>
                 </ul>
             </aside>
-            <form name="contactForm" ng-submit="send()" novalidate>
+            <form name="contactForm" ng-submit="sendContact()" novalidate>
                 <h2>Contact me</h2>
-                <input type="text" ng-model="contact.name" placeholder="Your name..." />
-                <input type="email" ng-nodel="contact.email" placeholder="Email.." />
-                <textarea ng-model="contact.message" placeholder="Type your message here..."></textarea>
-                <button type="submit">Send</button>
+                <input type="email" ng-model="contact.email" name="email" placeholder="Email..." required ng-class="{valid: contactForm.email.$valid, error: isInvalid('email')}" />
+                <input type="text" ng-model="contact.subject" name="subject" placeholder="Subject..." required ng-class="{valid: !contactForm.subject.$error.required, error: isInvalid('subject')}" />
+                <textarea ng-model="contact.message" name="message" placeholder="Type your message here..." required ng-class="{valid: !contactForm.message.$error.required, error: isInvalid('message')}"></textarea>
+                <button type="submit">Send<i class="fa fa-envelope"></i></button>
             </form>
         </div>
     </div>
 </footer>
+<div class="curtain">
+    <div class="loader" loader>
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+    <div class="modal" success-msg>
+        <i class="fa fa-bolt bolt"></i>
+        <div class="msg"><p>Thank you for contacting me. I'll get back to you as soon as possible!</p></div>
+        <button close-modal><i class="fa fa-times"></i></button>
+    </div>
+</div>

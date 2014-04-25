@@ -50,6 +50,17 @@
         top: 10px
         right: -13px
 
+@keyframes rotate
+    100%
+        transform: rotate(360deg)
+
+@keyframes bounce
+    0%, 100%
+        transform: scale(0.0)
+    50%
+        transform: scale(1.0)
+
+
 $black: rgb(0, 0, 0)
 $gray: rgb(68, 68, 68)
 $orange: rgb(255, 85, 85)
@@ -251,6 +262,7 @@ nav.top-menu
         @media only screen and (max-width : 768px)
             background: url('/images/bg-mobile.png')
             background-size: 100%
+            background-position: 50% 0% !important
 
         .headline
             display: table-cell
@@ -258,6 +270,9 @@ nav.top-menu
             width: 100%
             color: $white
             text-align: center
+
+            @media only screen and (max-width : 800px)
+                -webkit-filter: blur(0px) !important
 
             h1, h2
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
@@ -462,70 +477,163 @@ nav.top-menu
                     @media only screen and (max-width : 768px)
                         margin-bottom: 10px
 
-    footer
-        width: 100%
-        background: $yellow
-        overflow: auto
+footer
+    width: 100%
+    background: $yellow
+    overflow: auto
 
-        .wrapper
-            width: 85%
+    .wrapper
+        width: 85%
+        margin: 0 auto
+
+        @media only screen and (max-width : 1030px)
+            width: 100%
+
+    aside.card
+        width: 300px
+        float: left
+        margin: 50px
+
+        @media only screen and (max-width : 1030px)
+            float: none
+            margin-left: auto
+            margin-right: auto
+
+        h4
+            text-align: center
+
+        img
+            display: block
+            border-radius: 50%
+            width: 200px
+            height: 200px
             margin: 0 auto
 
-            @media only screen and (max-width : 1030px)
-                width: 100%
+            @media only screen and (max-width : 768px)
+                float: none
 
-        aside.card
-            width: 300px
+        ul
+            list-style: none
+            margin: 0 auto
+            padding: 0
+            width: 130px
+
+            li
+                margin: 10px 0
+
+                i
+                    margin: 0 5px 0 0
+
+    form
+        position: relative
+        width: 60%
+        float: right
+        margin: 0 auto
+
+        button
+            padding: 10px
+
+            i
+                margin-left: 5px
+
+        @media only screen and (max-width : 1030px)
+            float: none
+            width: 100%
+            margin: 0
+
+        input, textarea
+            @media only screen and (max-width : 1030px)
+                border-radius: 0
+                border-right: none
+                border-left: none
+
+.curtain
+    display: none
+    position: fixed
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.6)
+    top: 0
+    left: 0
+    opacity: 0
+    transition: 0.5s ease-in-out
+
+    &.active
+        opacity: 1
+
+    .modal
+        display: none
+        position: absolute
+        width: 425px
+        background: white
+        border-radius: 5px
+        padding: 30px 0 30px 30px
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+        .bolt
+            font-size: 46pt
             float: left
-            margin: 50px
+            margin: 0 30px 0 0
 
-            @media only screen and (max-width : 1030px)
-                float: none
-                margin-left: auto
-                margin-right: auto
+        button
+            position: absolute
+            top: -20px
+            right: -20px
+            width: 40px
+            height: 40px
+            border: none
+            border-radius: 50%
+            background: black
+            color: whit
+            outline: none
+            font-size: 20pt
+            line-height: 40px
+            padding: 0
 
-            h4
-                text-align: center
+    .loader
+        display: none
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 5
 
-            img
-                display: block
-                border-radius: 50%
-                width: 200px
-                height: 200px
-                margin: 0 auto
+        .spinner
+            width: 40px
+            height: 40px
+            position: absolute
+            text-align: center
+            animation: rotate 2.0s infinite linear
+            top: 50%
+            left: 50%
+            margin: -20px 0 0 -20px
 
-                @media only screen and (max-width : 768px)
-                    float: none
+            .dot1, .dot2
+                width: 60%
+                height: 60%
+                display: inline-block
+                position: absolute
+                top: 0
+                background-color: #FFF
+                border-radius: 100%
+                animation: bounce 2.0s infinite ease-in-out
 
-            ul
-                list-style: none
-                margin: 0 auto
-                padding: 0
-                width: 130px
-
-                li
-                    margin: 10px 0
-
-                    i
-                        margin: 0 5px 0 0
-
-        form
-            width: 60%
-            float: right
-            margin: 0 auto
-
-            @media only screen and (max-width : 1030px)
-                float: none
-                width: 100%
-                margin: 0
-
-            input, textarea
-                @media only screen and (max-width : 1030px)
-                    border-radius: 0
-                    border-right: none
-                    border-left: none
+            .dot2
+                top: auto
+                bottom: 0px
+                animation-delay: -1.0s
 
 article
     .constrained
         @media only screen and (max-width : 768px)
             margin-top: 40px
+
+input, textarea
+    &.error
+        border: solid rgb(255, 90, 90) 2px
+
+    &.valid
+        border: solid rgb(90, 255, 90) 2px
