@@ -61,6 +61,7 @@
             link: function(scope, elem, attrs) {
                 var $curtain = elem.closest('.curtain');
                 scope.$on('show-loader', function(e, sel) {
+                    d.activeElement.blur();
                     $curtain.children().hide();
                     elem.show();
                     $curtain.show();
